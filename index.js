@@ -90,8 +90,9 @@ app.get("/", (req, res) => {
     res.send("<h1>Doctors Portal Server</h1>");
 });
   
-const port = process.env.PORT || 4200;
-  
-app.listen(port, () => {
-    console.log("Listening at port 4200");
-});
+app.set( 'port', ( process.env.PORT || 4200 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });
